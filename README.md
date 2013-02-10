@@ -4,9 +4,9 @@ This was the template for one of my theses at the [TU Darmstadt](http://www.tu-d
 
 ## Table of Content
 
-- [How to use](#howtouse)
+- [How to use](#how-to-use)
 - [Features](#features)
-  - [Colors for corporate design](#colorsforcorporatedesign)
+  - [Colors for corporate design](#colors-for-corporate-design)
   - [Tables](#tables)
 
 ## How to use
