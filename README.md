@@ -2,6 +2,13 @@
 
 This was the template for one of my theses at the [TU Darmstadt](http://www.tu-darmstadt.de/index.en.jsp).
 
+## Table of Content
+
+- [How to use](#howtouse)
+- [Features](#features)
+  - [Colors for corporate design](#colorsforcorporatedesign)
+  - [Tables](#tables)
+
 ## How to use
 
 1. Download tud-design packages from the [physics department](http://exp1.fkp.physik.tu-darmstadt.de/tuddesign/)
