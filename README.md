@@ -6,8 +6,15 @@ This was the template for one of my theses at the [TU Darmstadt](http://www.tu-d
 
 - [How to use](#how-to-use)
 - [Features](#features)
+  - [Formulas](#formulas)
   - [Colors for corporate design](#colors-for-corporate-design)
   - [Tables](#tables)
+  - [To-do notes](#to-do-notes)
+  - [List of Symbols](#list-of-symbols)
+  - [List of Acronyms](#list-of-acronyms)
+  - [Beautiful graphs](#beatiful-graphs)
+    - [Bar charts](#bar-charts)
+    - [Pie charts](#pie-charts)
 
 ## How to use
 
@@ -26,6 +33,34 @@ This was the template for one of my theses at the [TU Darmstadt](http://www.tu-d
 5. Run `latex` for the last time and enjoy the output
 
 ## Features
+
+All features can be used in any LaTeX document and don't depend on the tud classes.
+
+### To-do notes
+
+```
+\usepackage[ngerman]{todonotes}
+```
+
+```
+\todo{my first to-do}
+```
+
+```
+\todo[noline]{my second to-do}
+```
+
+```
+\todo[inline]{my third to-do}
+```
+
+```
+\missingfigure{Add an awesome figure here}
+```
+
+```
+\listoftodos
+```
 
 ### Colors for corporate design
 
