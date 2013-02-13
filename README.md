@@ -12,9 +12,14 @@ This was the template for one of my theses at the [TU Darmstadt](http://www.tu-d
   - [To-do notes](#to-do-notes)
   - [List of Symbols](#list-of-symbols)
   - [List of Acronyms](#list-of-acronyms)
-  - [Beautiful graphs](#beatiful-graphs)
-    - [Bar charts](#bar-charts)
-    - [Pie charts](#pie-charts)
+  - [Beautiful graphs](#beautiful-graphs)
+      - [Bar charts](#bar-charts)
+      - [Pie charts](#pie-charts)
+      - [Line graph](#line-graph)
+      - [Two y-Axes](#two-y-axes)
+  - [Electronic circuits](#electronic circuits)
+  - [Text font in images](#text-font-in-images)
+  - [Custom bibliography](#custom-bibliography)
 
 ## How to use
 
@@ -146,7 +151,7 @@ Seite 95
 
 #### Pie charts
 
-### Crisp electronic circuits
+### Electronic circuits
 
 ```
 \begin{tikzpicture}[
