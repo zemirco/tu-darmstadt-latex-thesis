@@ -170,6 +170,14 @@ After
 
 ![Two y-axes](https://s3.amazonaws.com/zeMirco/github/latex-template/two_y_axes.png)
 
+### Text replacement
+
+Before
+![Without text replacement](https://s3.amazonaws.com/zeMirco/github/latex-template/psfrag_without.png)
+
+After
+![Text replacement](https://s3.amazonaws.com/zeMirco/github/latex-template/psfrag.png)
+
 ### Electronic circuits
 
 ```
