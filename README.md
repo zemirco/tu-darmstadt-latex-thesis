@@ -110,6 +110,8 @@ For tables I used the [ctable](http://texdoc.net/texmf-dist/doc/latex/ctable/cta
 	\LL}
 ```
 
+![Table](https://s3.amazonaws.com/zeMirco/github/latex-template/table.png)
+
 ### Formulas
 
 The big advantage of LaTex is how nicely complex formulas are handled.
@@ -128,8 +130,6 @@ Seite 95
 	\overline P_w = \frac{c_1}{T} \int_0^T v_w^3\,dt \ne c_1 \left(\frac{1}{T}\int_0^T v_w\,dt\right)^3 = c_1 \cdot \overline{v}_w^3.
 \end{equation}
 ```
-
-
 
 ### List of acronyms
 
@@ -150,11 +150,25 @@ After
 
 ### Beautiful graphs
 
+#### Line graph
+
+![Line graph](https://s3.amazonaws.com/zeMirco/github/latex-template/line_graph.png)
+
+
 #### Bar charts
+
+![Simple bar chart](https://s3.amazonaws.com/zeMirco/github/latex-template/simple_bar_chart.png)
+
 
 #### Stacked bar charts
 
 #### Pie charts
+
+![Pie chart](https://s3.amazonaws.com/zeMirco/github/latex-template/pie_chart.png)
+
+#### Two y-axes
+
+![Two y-axes](https://s3.amazonaws.com/zeMirco/github/latex-template/two_y_axes.png)
 
 ### Electronic circuits
 
@@ -177,6 +191,8 @@ After
 	\draw (6,1.5) node[anchor=west]{$U_\textnormal{L}$};
 \end{tikzpicture}
 ```
+
+![Electronic circuits](https://s3.amazonaws.com/zeMirco/github/latex-template/electronic_circuits.png)
 
 ### Custom bibliography
 
