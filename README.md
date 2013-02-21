@@ -136,6 +136,11 @@ Seite 95
 ```
 \newacronym{PVGIS}{PVGIS}{Photovoltaic Geographical Information System}
 ```
+Before
+![Acronyms without style](https://s3.amazonaws.com/zeMirco/github/latex-template/acronyms_without_style.png)
+
+After
+![Acronyms with style](https://s3.amazonaws.com/zeMirco/github/latex-template/acronyms_with_style.png)
 
 ### List of symbols
 
