@@ -132,15 +132,51 @@ Equation for average wind power. Taken from **Betrieb von Kleinwindkraftanlagen 
 
 ## List of acronyms
 
+Define your acronyms.
+
 ```
 \newacronym{CO2}{CO\ensuremath{_\textnormal{2}}}{Carbon dioxide}
 \newacronym{NEDC}{NEDC}{New European Driving Cycle}
+
+% Print acronyms
+\printglossary[type=acronym, title=Acronyms, toctitle=Acronyms, style=mystyle]
 ```
 
-Before
 ![Acronyms without style](https://s3.amazonaws.com/zeMirco/github/latex-template/acronyms_without_style.png)
 
-After
+Add an optional custom style
+
+```
+% Define custom style for glossaries
+\newglossarystyle{mystyle}{%
+  % full stop after every description
+	\renewcommand*{\glspostdescription}{}%
+	% put the glossary in a longtable environment:
+  % left alignment, no white in front und three columns
+	\renewenvironment{theglossary}{\begin{longtable}[l]{@{}lcl}}{\end{longtable}}
+	% have nothing after \begin{theglossary}:
+	\renewcommand*{\glossaryheader}{}%
+  % uncomment following line if you want headings
+	% \renewcommand*{\glossaryheader}{\bfseries Symbol & \bfseries Unit & \bfseries Description \endhead}%
+	% have nothing between glossary groups (next two commands):
+	\renewcommand*{\glsgroupheading}[1]{}%
+	% Suppress the vertical gap at the start of each group
+	\renewcommand*{\glsgroupskip}{}%
+	% set how each entry should appear:
+	\renewcommand*{\glossaryentryfield}[5]{%
+		\glstarget{##1}{##2}	% Name
+		& ##4					        % Symbol
+		& ##3					        % Description
+		% & ##5					      % Page list
+		\\% end of row
+	}%
+	% Sub entries treated the same as level 0 entries:
+	\renewcommand*{\glossarysubentryfield}[6]{%
+		\glossaryentryfield{##2}{##4}{##3}
+	}%
+}
+```
+
 ![Acronyms with style](https://s3.amazonaws.com/zeMirco/github/latex-template/acronyms_with_style.png)
 
 ## List of symbols
@@ -153,6 +189,9 @@ After
 \newglossaryentry{L}{name=\ensuremath{L}, symbol={\ensuremath{^\circ}}, description={Latitude}, type=symbolslist}
 \newglossaryentry{delta}{name=\ensuremath{\delta}, symbol={\ensuremath{^\circ}}, description={Declination of the sun}, type=symbolslist}
 \newglossaryentry{HSR}{name=\ensuremath{H_{\textnormal{SR}}}, symbol={}, description={Hour angle at sunrise (+) and sunset (-)}, type=symbolslist}
+
+% Print list of symbols
+\printglossary[type=symbolslist, style=mystyle]
 ```
 
 ![Nomenclature](https://s3.amazonaws.com/zeMirco/github/latex-template/nomenclature.png)
