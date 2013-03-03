@@ -76,53 +76,59 @@ For tables I used the [ctable](http://texdoc.net/texmf-dist/doc/latex/ctable/cta
 
 ```
 \ctable[
-	cap = Wirtschaftslage und Prognose für Österreich,
-	caption = Wirtschaftslage und Prognose für Österreich \cite{verbraucher2011, prognose2011},
-	label	= tab:inflation,
+	caption = Technical data of the Mitsubishi i-MiEV \cite{imiev_daten},
+	cap = Technical Data of the Mitsubishi i-MiEV,
+	label	= tab:data_imiev,
 	pos = htb
-	]{lrr}
-	{
-		\tnote[1]{Veränderung des Verbraucherpreisindex}
-		\tnote[2]{Index 1990 = 100}
-		\tnote[3]{Prognosewerte}
-	}
-	{\FL	Jahr			& Inflationsrate in \%\tmark[1]		& Preisentwicklung\tmark[2]
-	\ML		2000			& 2,3								& 125,7
-	\NN		2001			& 2,7								& 129,1
-	\NN		2002			& 1,8								& 131,5
-	\NN		2003			& 1,3								& 133,2
-	\NN		2004			& 2,1								& 136,0
-	\NN		2005			& 2,3								& 139,1
-	\NN		2006			& 1,5								& 141,2
-	\NN		2007			& 2,2								& 144,3
-	\NN		2008			& 3,2								& 148,9
-	\NN		2009			& 0,5								& 149,6
-	\NN		2010			& 1,9								& 152,4
-	\NN 	2011\tmark[3]	& 2,1								& 155,6
-	\NN		2012\tmark[3]	& 1,8								& 158,4
-	\LL}
+	]{llr}
+	{\tnote[1]{Data measured in NEDC}}
+	{\FL Description & Specification & Value
+		\ML \multirow{4}*{Dimensions} & Length & 3475 mm
+		\NN & Width & 1475 mm
+		\NN & Height & 1610 mm
+		\NN & Wheel base & 2550 mm
+		\ML \multirow{5}*{Load capacity} & Luggage space & 227 / 860 liters
+		\NN & Curb weight & 1110 kg
+		\NN & Permissible maximum weight & 1450 kg
+		\NN & Payload & 340 kg
+		\NN & Seats & 4 People
+		\ML \multirow{3}*{Driving characteristics} & Energy consumption & 135 Wh/km
+		\NN & Range & 150 km\tmark[1]
+		\NN & max. Velocity & 130 km/h
+		\ML \multirow{5}*{Battery data} & Nominal voltage & 330 V
+		\NN & Electric charge & 50 Ah
+		\NN & Theoret. energy & 16500 Wh
+		\NN & Mass & 165 kg
+		\NN & Energy density & 100 Wh/kg
+		\ML \multirow{3}*{Motor data} & Typ & Permanent Synchronous Motor
+		\NN & Nominal power & 35 kW
+		\NN & max. Torque & 180 Nm
+		\LL}
 ```
 
 ![Table](https://s3.amazonaws.com/zeMirco/github/latex-template/table.png)
 
-## Formulas
+## Equations
 
-The big advantage of LaTex is how nicely complex formulas are handled.
+The big advantage of LaTex is how nicely complex equations are handled.
 
-Formula for extraterrestrial radiation. Taken from **Renewable and Efficient Electric Power Systems** by Gilbert M. Masters on page 432, 7.43.
+Equation for extraterrestrial radiation. Taken from **Renewable and Efficient Electric Power Systems** by Gilbert M. Masters on page 432, 7.43.
+
 ```
 \begin{equation}
   \glsentrytext{I0} = \frac{24}{\pi} \glsentrytext{SC} \left[1+0,034\cos\left(\frac{360\glsentrytext{n}}{365}\right)\right](\cos \glsentrytext{L} \cos \glsentrytext{delta} \sin \glsentrytext{HSR} + \glsentrytext{HSR} \sin \glsentrytext{L} \sin \glsentrytext{delta})
 \end{equation}
 ```
 
-Seite 95
+Equation for average wind power. Taken from **Betrieb von Kleinwindkraftanlagen - ein Überblick über Markt, Technik und Wirtschaftlichkeit** by W. Halbhuber on page 95.
 
 ```
 \begin{equation}
 	\overline P_w = \frac{c_1}{T} \int_0^T v_w^3\,dt \ne c_1 \left(\frac{1}{T}\int_0^T v_w\,dt\right)^3 = c_1 \cdot \overline{v}_w^3.
 \end{equation}
 ```
+
+![Equations](https://s3.amazonaws.com/zeMirco/github/latex-template/equations.png)
 
 ## List of acronyms
 
