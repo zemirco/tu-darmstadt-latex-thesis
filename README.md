@@ -43,31 +43,22 @@ All features can be used in any LaTeX document and don't depend on the tud class
 
 ## To-do notes
 
-![To-do notes](https://s3.amazonaws.com/zeMirco/github/latex-template/to-do-notes.png)
+Very useful while writing the thesis. Don't forget to delete them before printing the final copy. Enable to-do notes with the **todonotes** package. I usually use the inline style.
 
 ```
 \usepackage[ngerman]{todonotes}
+\todo[inline]{This is a sample to-do note}
 ```
 
-```
-\todo{my first to-do}
-```
+![To-do notes](https://s3.amazonaws.com/zeMirco/github/latex-template/to-do-notes.png)
 
-```
-\todo[noline]{my second to-do}
-```
-
-```
-\todo[inline]{my third to-do}
-```
-
-```
-\missingfigure{Add an awesome figure here}
-```
+Print a list with your open to-do notes using the following command.
 
 ```
 \listoftodos
 ```
+
+![To-do list](https://s3.amazonaws.com/zeMirco/github/latex-template/to-do-ist.png)
 
 ## Colors for corporate design
 
