@@ -133,8 +133,10 @@ Equation for average wind power. Taken from **Betrieb von Kleinwindkraftanlagen 
 ## List of acronyms
 
 ```
-\newacronym{PVGIS}{PVGIS}{Photovoltaic Geographical Information System}
+\newacronym{CO2}{CO\ensuremath{_\textnormal{2}}}{Carbon dioxide}
+\newacronym{NEDC}{NEDC}{New European Driving Cycle}
 ```
+
 Before
 ![Acronyms without style](https://s3.amazonaws.com/zeMirco/github/latex-template/acronyms_without_style.png)
 
@@ -144,8 +146,16 @@ After
 ## List of symbols
 
 ```
-\newglossaryentry{IDC}{name=\ensuremath{\bar I_{\textnormal{DC}}}, symbol={kWh/m\ensuremath{^2} pro Tag}, description={Durchschnittliche diffuse Sonneneinstrahlung auf eine Kollektoroberfläche}, type=symbolslist}
+\newglossaryentry{D}{name=\ensuremath{D}, symbol={}, description={Examination days}, type=symbolslist}
+\newglossaryentry{I0}{name=\ensuremath{\bar I_{\textnormal{0}}}, symbol={kWh/m\ensuremath{^2} per day}, description={Average solar irradiance}, type=symbolslist}
+\newglossaryentry{SC}{name=\ensuremath{SC}, symbol={W/m\ensuremath{^2}}, description={Solar constant}, type=symbolslist}
+\newglossaryentry{n}{name=\ensuremath{n}, symbol={}, description={Day in a year}, type=symbolslist}
+\newglossaryentry{L}{name=\ensuremath{L}, symbol={\ensuremath{^\circ}}, description={Latitude}, type=symbolslist}
+\newglossaryentry{delta}{name=\ensuremath{\delta}, symbol={\ensuremath{^\circ}}, description={Declination of the sun}, type=symbolslist}
+\newglossaryentry{HSR}{name=\ensuremath{H_{\textnormal{SR}}}, symbol={}, description={Hour angle at sunrise (+) and sunset (-)}, type=symbolslist}
 ```
+
+![Nomenclature](https://s3.amazonaws.com/zeMirco/github/latex-template/nomenclature.png)
 
 ## Beautiful graphs
 
