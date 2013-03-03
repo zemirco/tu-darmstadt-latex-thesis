@@ -1,0 +1,35 @@
+Figure \ref{fig:co2_einsparung_wind} shows a grouped bar chart. some ref to co2 \gls{CO2}. Taken from \href{http://www.nachhaltigwirtschaften.at/edz_pdf/0646_windenergieanlagen.pdf}{Systemmodell zur Optimierung der Integration von Windenergieanlagen in Österreich und Deutschland} page 126
+
+\begin{figure}[htb] 
+	\centering
+	\begin{tikzpicture} 
+		\begin{axis}[
+			ybar,
+			xlabel = Year,
+			% xticklabels = none,
+			xtick=\empty,
+			extra x ticks = {1,2,3,4,5},
+			extra x tick labels = {2000,2005,2010,2015,2020},
+			% xmin = 1,
+			% xmax = 96,
+			ymin = 0,
+			ymax = 900,
+			axis x line* = bottom,
+			axis y line* = left,
+			ylabel= \gls{CO2} savings in g \gls{CO2}/kWh,
+			width= 0.9\textwidth,
+			height = 0.5\textwidth,
+			ymajorgrids = true,
+			y tick label style = {/pgf/number format/use comma},
+			bar width = 6mm,
+			legend style = {at={(0.5, 1.025)}, anchor = south, legend columns = -1, draw=none, area legend},
+			area legend,
+			]
+			\addplot+[mark=none, blau_2b, very thick] table[x=year, y=de] {data/grouped-bar-chart.dat};
+			\addplot+[mark=none, gruen_4b, very thick] table[x=year, y=at] {data/grouped-bar-chart.dat};
+			\legend{Germany, Austria}
+		\end{axis} 
+	\end{tikzpicture}
+	\caption[CO$_2$ savings from wind turbines]{CO$_2$ savings from wind turbines in Germany and Austria \cite{auer06}}
+	\label{fig:co2_einsparung_wind}
+\end{figure}

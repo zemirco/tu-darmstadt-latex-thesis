@@ -1,0 +1,195 @@
+% Include header.tex with configuration
+\input{header}
+
+% Use colors for corporate design
+\input{features/custom-colors}
+
+\newglossary[sylg]{symbolslist}{syi}{syo}{Nomenclature}
+\makeglossaries
+
+\input{features/acronyms}
+
+\begin{document}
+
+\input{title}
+
+\makethesistitle
+
+% Start with roman page numbering
+\pagenumbering{Roman}
+
+% Comment out the following two lines before printing your final document
+\listoftodos
+\newpage
+
+% Print table of contents
+\tableofcontents
+
+\newpage
+
+% Print list of figures
+\listoffigures
+
+\newpage
+
+% Print list of tables
+\listoftables
+
+\newpage
+
+% Define custom style for glossaries
+\newglossarystyle{mystyle}{%
+  % full stop after every description
+	\renewcommand*{\glspostdescription}{}%
+	% put the glossary in a longtable environment:
+  % left alignment, no white in front und three columns
+	\renewenvironment{theglossary}{\begin{longtable}[l]{@{}lcl}}{\end{longtable}}
+	% have nothing after \begin{theglossary}:
+	\renewcommand*{\glossaryheader}{}%
+  % uncomment following line if you want headings
+	% \renewcommand*{\glossaryheader}{\bfseries Symbol & \bfseries Unit & \bfseries Description \endhead}%
+	% have nothing between glossary groups (next two commands):
+	\renewcommand*{\glsgroupheading}[1]{}%
+	% Suppress the vertical gap at the start of each group
+	\renewcommand*{\glsgroupskip}{}%
+	% set how each entry should appear:
+	\renewcommand*{\glossaryentryfield}[5]{%
+		\glstarget{##1}{##2}	% Name
+		& ##4					        % Symbol
+		& ##3					        % Description
+		% & ##5					      % Page list
+		\\% end of row
+	}%
+	% Sub entries treated the same as level 0 entries:
+	\renewcommand*{\glossarysubentryfield}[6]{%
+		\glossaryentryfield{##2}{##4}{##3}
+	}%
+}
+
+% Print acronyms
+\printglossary[type=acronym, title=Acronyms, toctitle=Acronyms, style=mystyle]
+
+% Print list of symbols
+\printglossary[type=symbolslist, style=mystyle]
+\newpage
+
+% Save current value of roman page number
+\newcounter{romanpagenumbers}
+\setcounter{romanpagenumbers}{\value{page}}
+
+% Change to arabic page numbers
+\pagenumbering{arabic}
+
+% --- Equations ---
+\chapter{Equations}
+
+Equation for extraterrestrial radiation with \gls{I0}, \gls{SC}, \gls{n}, \gls{L}, \gls{delta} and \gls{HSR}.
+
+\begin{equation}
+  \glsentrytext{I0} = \frac{24}{\pi} \glsentrytext{SC} \left[1+0,034\cos\left(\frac{360\glsentrytext{n}}{365}\right)\right](\cos \glsentrytext{L} \cos \glsentrytext{delta} \sin \glsentrytext{HSR} + \glsentrytext{HSR} \sin \glsentrytext{L} \sin \glsentrytext{delta})
+\end{equation}
+
+Equation for average wind power.
+
+\begin{equation}
+	\overline P_w = \frac{c_1}{T} \int_0^T v_w^3\,dt \ne c_1 \left(\frac{1}{T}\int_0^T v_w\,dt\right)^3 = c_1 \cdot \overline{v}_w^3.
+\end{equation}
+
+% --- Acronyms ---
+\chapter{Acronyms}
+
+Use package \href{ftp://ftp.dante.de/tex-archive/macros/latex/contrib/glossaries/glossariesbegin.pdf}{glossaries}.
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit \textbf{\gls{CO2} for the first time}, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat \textbf{\gls{CO2} for the second time}, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. 
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit \textbf{\gls{NEDC} for the first time}, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat \textbf{\gls{NEDC} for the second time}, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. 
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit \textbf{\gls{D} for the first time}, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat \textbf{\gls{D} for the second time}, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. 
+
+% --- Simple citations ---
+\chapter{Citations}
+
+This could be a sentence from a book.\cite{wagner2010}
+
+% --- Page numbering ---
+\chapter{Page numbering}
+
+\input{chapters/page-numbering}
+
+% --- Complex tables ---
+\chapter{Table}
+
+\input{chapters/table}
+
+% --- To-do notes ---
+\chapter{To-do notes}
+
+\input{chapters/todonotes}
+
+% --- Images side by side ---
+\chapter{Images}
+
+\input{chapters/images}
+
+% --- Bar chart ---
+\chapter{Bar charts}
+
+This chapter shows how to render a simple bar chart, a stacked bar chart and a grouped bar chart.
+
+% --- Simple bar chart ---
+\section{Simple bar chart}
+
+\input{chapters/bar-chart}
+
+\newpage
+
+% --- Stacked bar chart ---
+\section{Stacked bar chart}
+
+\input{chapters/stacked-bar-chart}
+
+\newpage
+
+% --- Grouped bar chart ---
+\section{Grouped bar chart}
+
+\input{chapters/grouped-bar-chart}
+
+% --- Pie chart ---
+\chapter{Pie chart}
+
+\input{chapters/piechart}
+
+% --- Line graph ---
+\chapter{Line graph}
+
+\input{chapters/line-graph}
+
+% --- Line graph ---
+\chapter{Two y-axes}
+
+\input{chapters/two-y-axes}
+
+% --- Text replacement ---
+\chapter{Text replacement}
+
+\input{chapters/text-replacement}
+
+% --- Electronic circuits ---
+\chapter{Electronic circuits}
+
+Use the \textbf{tikz} package to draw electronic circuits and more.
+
+\input{chapters/circuits}
+
+\newpage
+
+% Continue with roman page numbering
+\pagenumbering{Roman}
+\setcounter{page}{\value{romanpagenumbers}}
+
+% Print the bibliography
+\printbibliography
+  
+% End of document
+\end{document}

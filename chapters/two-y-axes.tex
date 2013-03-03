@@ -1,0 +1,55 @@
+One on the left and one on the right side.
+
+\begin{figure}[htb] 
+	\centering
+	\begin{tikzpicture} 
+		\begin{axis}[
+			ybar,
+			scale only axis,
+			xlabel= Trips in 2010,
+			width = 0.8\textwidth,
+			height = 0.5\textwidth,
+			ylabel= Covered distance in km,
+			% height = 80mm,
+			ymin = 0,
+			ymax = 800,
+			xmin = 0,
+			xmax = 111,
+			bar width = 0.5mm,
+			axis x line* = bottom,
+			axis y line* = left,
+			bar shift = -0.25mm,
+			y tick label style = {/pgf/number format/use comma},
+			legend style = {at={(0.5, 1.025)}, anchor = south east, legend columns = -1, draw=none, area legend},
+			area legend
+			]
+			\addplot+[mark=none, blau_2b] table[x=number, y=km] {data/ev.dat};
+			\addplot+[line legend, sharp plot, dashed, line width = 2pt, mark=none, draw = blau_2b] coordinates{(0,150) (111,150)};
+			\legend{Kilometers, max. range (150 km)}
+		\end{axis} 
+		\begin{axis}[
+			ybar,
+			scale only axis,
+			width = 0.8\textwidth,
+			height = 0.5\textwidth,
+			axis y line* = right,
+			axis x line = none,
+			ylabel = Immobilization time between two trips in hours,
+			% height = 80mm,
+			xmin = 0,
+			xmax = 111,
+			ymin = 0,
+			ymax = 410,
+			bar width = 0.5mm,
+			bar shift = 0.25mm,
+			legend style = {at={(0.5, 1.025)}, anchor = south west, legend columns = -1, draw=none, area legend},
+			area legend
+			]
+			\addplot+[mark=none, gruen_4b] table[x=number, y=time] {data/ev.dat};
+			\addplot+[line legend, sharp plot, dashed, line width = 2pt, mark=none, draw = gruen_4b] coordinates{(0,8) (111,8)};
+			\legend{Immobilization time, Charging time (8h)}
+		\end{axis}
+	\end{tikzpicture}
+	\caption[Covered distance and immobilization time between trips of my awesome electric vehicle]{Covered distance per trip and immobilization time between two trips of my awesome electric vehicle in 2010}
+	\label{fig:trips_ev}
+\end{figure}

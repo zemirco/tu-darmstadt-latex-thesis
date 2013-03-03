@@ -1,0 +1,43 @@
+Figure \ref{fig:new_ev} shows a simple bar chart.
+
+\begin{figure}[htb] 
+	\centering
+	\begin{tikzpicture} 
+		\begin{axis}[
+			ybar,
+			xlabel = Month,
+			xmin = 0.5,
+			xmax = 13.5,
+			ymin = 0,
+			ymax = 35,
+			axis x line* = bottom,
+			axis y line* = left,
+			ylabel= New electric vehicles,
+			width= 0.9\textwidth,
+			height = 0.6\textwidth,
+			ymajorgrids = true,
+			bar width = 5mm,
+			xticklabels = \empty,
+			extra x ticks = {1,2,3,4,5,6,7,8,9,10,11,12,13},
+			extra x tick labels = {Jan '09, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec, Jan '10},
+			]
+			\addplot+[mark=none, blau_2b, very thick] coordinates {
+				(1,3)
+				(2,3)
+				(3,7)
+				(4,1)
+				(5,28)
+				(6,13)
+				(7,4)
+				(8,7)
+				(9,4)
+				(10,14)
+				(11,10)
+				(12,18)
+				(13,35)
+			};
+		\end{axis} 
+	\end{tikzpicture}
+	\caption[New electric vehicles between Januar 2010 and Januar 2011]{New electric vehicles between Januar 2010 and Januar 2011 \cite{sa-neuzulassungen}}
+	\label{fig:new_ev}
+\end{figure}

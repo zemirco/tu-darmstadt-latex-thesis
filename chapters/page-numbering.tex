@@ -1,0 +1,17 @@
+The template consists of four parts. 
+
+The first part includes the title and second page and doesn't have any page numbers. 
+
+The second part consists of the table of contents, list of figures, list of tables, acronyms and symbols. It has roman page numbers and starts at \textbf{I}. 
+
+The third part contains the main content. It has arabic page numbers and starts at \textbf{1}. 
+
+The fourth and last part includes the bibliography. It has roman page numbers and continues the counting from part two.
+
+The title and second page don't have any page numbers. It is therefore important to start with the roman page numbering below the command \textbf{\textbackslash makethesistitle}. Otherwise \LaTeX{} will throw warnings like
+
+\begin{verbatim}
+pdfTeX warning (ext4): 
+destination with the same identifier (name{page.}) has been already used,
+duplicate ignored
+\end{verbatim}

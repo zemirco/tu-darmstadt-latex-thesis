@@ -1,0 +1,29 @@
+Figure \ref{fig:weibull_distribution} shows a line graph.
+
+\begin{figure}[htb] 
+	\centering
+	\begin{tikzpicture} 
+		\begin{axis}[
+			xlabel= Wind speed in m/s,
+			ylabel= Relative frequency in \%,
+			xmin = 0,
+			xmax = 25,
+			ymin = 0,
+			ymax = 30,
+			width= 120mm,
+			height = 80mm,
+			%legend columns=-1,
+			axis x line = bottom,
+			axis y line = left,
+			legend style = {draw = none, cells={anchor=west}}
+			]
+			\addplot+[mark=none, blau_2b, very thick] file {data/weibull_k1.dat};
+			\addplot+[mark=none, gruen_4b, very thick] file {data/weibull_k1_5.dat};
+			\addplot+[mark=none, orange_6b, very thick] file {data/weibull_k2.dat};
+			\addplot+[mark=none, rot_8b, very thick] file {data/weibull_k3.dat};
+			\legend{k=1, {k=1,5}, k=2, k=3}
+		\end{axis} 
+	\end{tikzpicture}
+	\caption[Weibull distribution with varying scaling factor]{Weibull distribution with varying scaling factor $\bar v_\textnormal{w} = 4\,\textnormal{m/s}$, scaling factor $A = 4,51\,\textnormal{m/s}$ and varying form parameter $k$}
+	\label{fig:weibull_distribution}
+\end{figure}

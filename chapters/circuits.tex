@@ -1,0 +1,24 @@
+Figure \ref{fig:diode_solar_cell} shows the one diode equivalent circuit of a real solar cell.
+
+\begin{figure}[htb]
+	\centering
+	\begin{tikzpicture}[
+		circuit ee IEC,
+		set inductor graphic=var inductor IEC graphic,
+		scale = 0.85,
+		]
+		\draw (0,0) to [current source] (0,3);
+		\draw (0,3) to [current direction={info=$I_\textnormal{Ph}$}] (2,3);
+		\draw (2,3) -- (4,3);
+		\draw (2,3) to [current direction={info={$I_\textnormal{D}$}}] (2,1.5) to [diode] (2,0);
+		\draw (0,0) to (8,0);
+		\draw (4,0) to [resistor={info={$R_\textnormal{P}$}}] (4,3);
+		\draw (4,3) to [resistor={info={$R_\textnormal{S}$}}] (6,3);
+		\draw (6,3) to [current direction={info={$I_\textnormal{L}$}}] (8,3);
+		\draw (8,3) to [resistor={info={$R_\textnormal{L}$}}](8,0);
+		\draw [->] (6,2.8) -- (6,0.2);
+		\draw (6,1.5) node[anchor=west]{$U_\textnormal{L}$};
+	\end{tikzpicture}
+	\caption[One diode equivalent circuit of a real solar cell]{One diode equivalent circuit of a real solar cell \cite{wagner2010}}
+	\label{fig:diode_solar_cell}
+\end{figure}

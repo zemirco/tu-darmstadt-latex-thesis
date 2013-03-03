@@ -1,0 +1,36 @@
+Figure \ref{fig:energy_austria} shows a stacked bar chart. Data from  \href{http://www.e-control.at/de/statistik/strom/betriebsstatistik/jahresreihen}{Energy Control Austria}. Chart shows energy production from \gls{ROR}, Storage power plant, Thermal power station and Renewable energy.
+
+\begin{figure}[htb] 
+	\centering
+	\begin{tikzpicture} 
+		\begin{axis}[
+			ybar stacked,
+			xlabel= Year,
+			ylabel = Energy in GWh,
+			ymajorgrids = true,
+			width = 0.9\textwidth,
+			height = 0.5\textwidth,
+			xmin = 1999.5,
+			xmax = 2009.5,
+			ymin = 0,
+			ymax = 70000,
+			axis x line* = bottom,
+			axis y line* = left,
+			xticklabels = none,
+			extra x ticks = {2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009},
+			extra x tick labels = {2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009},
+			legend style = {at={(0.5, 1.025)}, anchor = south, legend columns = -1, draw=none, area legend},  
+      area legend,
+			scaled ticks = false,
+			y tick label style = {/pgf/number format/use comma}
+			]
+			\addplot+[mark=none, fill=blau_2b, draw = blau_2b, bar width = 8mm] table[x=year, y=ror] {data/stacked-bar-chart.dat};
+			\addplot+[mark=none, fill=lila_10b, draw = lila_10b, bar width = 8mm] table[x=year, y=storage] {data/stacked-bar-chart.dat};
+			\addplot+[mark=none, fill=orange_6b, draw = orange_6b, bar width = 8mm] table[x=year, y=thermal] {data/stacked-bar-chart.dat};
+			\addplot+[mark=none, fill=gruen_4b, draw = gruen_4b, bar width = 8mm] table[x=year, y=renewable] {data/stacked-bar-chart.dat};
+			\legend{\gls{ROR}, Storage power plant, Thermal power station, Renewable energy}
+		\end{axis} 
+	\end{tikzpicture}
+	\caption[Energy production in Austria]{Energy production in Austria \cite{econtrol2011}}
+	\label{fig:energy_austria}
+\end{figure}

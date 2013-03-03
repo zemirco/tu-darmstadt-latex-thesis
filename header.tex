@@ -1,0 +1,110 @@
+% document class
+\documentclass[
+  accentcolor=tud4b,
+  bibliography=totoc,
+  listof=totoc,
+  oneside,
+  numbersubsubsec,
+  fontsize=12pt,
+  type=sta,
+  colorback
+]{tudthesis}
+
+% to-do notes
+\usepackage[english]{todonotes}
+
+% no indentation for new paragraphs
+\setlength{\parindent}{0pt}
+
+% input encoding
+\usepackage[utf8]{inputenc}
+
+% font encoding
+\usepackage[T1]{fontenc}
+
+% german or english document
+% \usepackage[ngerman]{babel}
+\usepackage[english]{babel}
+
+% set line spacing to 1.5
+\usepackage{setspace}
+\onehalfspacing
+
+% multiple rows inside a table
+\usepackage{multirow}
+
+% german quotes and package important for biblatex
+\usepackage[german=quotes]{csquotes}
+
+% consistent text for graphics
+\usepackage{psfrag}
+
+% bibliography with biblatex
+\usepackage[style=numeric, firstinits=true, backend=bibtex]{biblatex}
+% same style for URLs
+\urlstyle{same}
+% title not italic
+\DeclareFieldFormat{title}{#1\isdot}
+% colon between author and title
+\renewcommand{\labelnamepunct}{\addcolon\space}
+% use semicolon when multiple authors
+\renewcommand{\multinamedelim}{\addsemicolon\space}
+% seperate last author with semicolon
+\renewcommand{\finalnamedelim}{\addsemicolon\space}
+% format name
+\DeclareNameFormat{default}{\usebibmacro{name:last-first}{#1}{#4}{#5}{#7}\usebibmacro{name:andothers}}
+% text for url
+\DefineBibliographyStrings{ngerman}{urlseen={abgerufen am}}
+
+% biblatex
+\bibliography{bibliography/bibliography}
+
+% draw beautiful graphs and import MATLAB files
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+% electronic circuits
+\usetikzlibrary{circuits.ee.IEC}
+
+% fill bar charts with patterns
+\usetikzlibrary{patterns}
+
+% Euro symbol with symbol behind value
+\usepackage[right]{eurosym}
+
+% properly underlined url in bibliography
+\usepackage{url}
+
+% adds align command
+\usepackage{amsmath}
+
+% use graphics
+\usepackage{graphicx}
+
+% display pics next to each other, don't use older subfigure package
+\usepackage{subfig}
+
+% use nicer tables with footnotes
+\usepackage{ctable}
+
+% force all floats to render with \FloatBarrier
+\usepackage{placeins}
+
+% acronyms and nomenclature
+\usepackage[acronym, toc, nonumberlist]{glossaries}
+
+% links within latex
+\usepackage[bookmarks]{hyperref}
+\hypersetup{
+  linktocpage=false,
+  breaklinks=true,
+  bookmarksnumbered=true,
+  colorlinks=false,
+  pdftitle=Technical and economical analysis of an electric vehicle including design of a charging station fed by renewable energy,
+  pdfauthor=Mirco Zeiss,
+}
+
+% break long URLs in toc
+\usepackage{breakurl}
