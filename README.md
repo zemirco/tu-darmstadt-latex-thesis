@@ -58,7 +58,7 @@ Print a list with your open to-do notes using the following command.
 \listoftodos
 ```
 
-![To-do list](https://s3.amazonaws.com/zeMirco/github/latex-template/to-do-ist.png)
+![To-do list](https://s3.amazonaws.com/zeMirco/github/latex-template/to-do-list.png)
 
 ## Colors for corporate design
 
