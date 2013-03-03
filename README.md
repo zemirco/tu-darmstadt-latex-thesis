@@ -161,27 +161,253 @@ After
 
 ### Line graph
 
+```
+\begin{figure}[htb] 
+	\centering
+	\begin{tikzpicture} 
+		\begin{axis}[
+			xlabel= Wind speed in m/s,
+			ylabel= Relative frequency in \%,
+			xmin = 0,
+			xmax = 25,
+			ymin = 0,
+			ymax = 30,
+			width= 120mm,
+			height = 80mm,
+			%legend columns=-1,
+			axis x line = bottom,
+			axis y line = left,
+			legend style = {draw = none, cells={anchor=west}}
+			]
+			\addplot+[mark=none, blau_2b, very thick] file {data/weibull_k1.dat};
+			\addplot+[mark=none, gruen_4b, very thick] file {data/weibull_k1_5.dat};
+			\addplot+[mark=none, orange_6b, very thick] file {data/weibull_k2.dat};
+			\addplot+[mark=none, rot_8b, very thick] file {data/weibull_k3.dat};
+			\legend{k=1, {k=1,5}, k=2, k=3}
+		\end{axis} 
+	\end{tikzpicture}
+	\caption[Weibull distribution with varying scaling factor]{Weibull distribution with varying scaling factor $\bar v_\textnormal{w} = 4\,\textnormal{m/s}$, scaling factor $A = 4,51\,\textnormal{m/s}$ and varying form parameter $k$}
+	\label{fig:weibull_distribution}
+\end{figure}
+```
+
 ![Line graph](https://s3.amazonaws.com/zeMirco/github/latex-template/line_graph.png)
 
 
 ### Bar charts
 
+```
+\begin{figure}[htb] 
+	\centering
+	\begin{tikzpicture} 
+		\begin{axis}[
+			ybar,
+			xlabel = Month,
+			xmin = 0.5,
+			xmax = 13.5,
+			ymin = 0,
+			ymax = 35,
+			axis x line* = bottom,
+			axis y line* = left,
+			ylabel= New electric vehicles,
+			width= 0.9\textwidth,
+			height = 0.6\textwidth,
+			ymajorgrids = true,
+			bar width = 5mm,
+			xticklabels = \empty,
+			extra x ticks = {1,2,3,4,5,6,7,8,9,10,11,12,13},
+			extra x tick labels = {Jan '09, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec, Jan '10},
+			]
+			\addplot+[mark=none, blau_2b, very thick] coordinates {
+				(1,3)
+				(2,3)
+				(3,7)
+				(4,1)
+				(5,28)
+				(6,13)
+				(7,4)
+				(8,7)
+				(9,4)
+				(10,14)
+				(11,10)
+				(12,18)
+				(13,35)
+			};
+		\end{axis} 
+	\end{tikzpicture}
+	\caption[New electric vehicles between Januar 2010 and Januar 2011]{New electric vehicles between Januar 2010 and Januar 2011 \cite{sa-neuzulassungen}}
+	\label{fig:new_ev}
+\end{figure}
+```
+
 ![Simple bar chart](https://s3.amazonaws.com/zeMirco/github/latex-template/simple_bar_chart.png)
 
-
 ### Stacked bar charts
+
+```
+\begin{figure}[htb] 
+	\centering
+	\begin{tikzpicture} 
+		\begin{axis}[
+			ybar stacked,
+			xlabel= Year,
+			ylabel = Energy in GWh,
+			ymajorgrids = true,
+			width = 0.9\textwidth,
+			height = 0.5\textwidth,
+			xmin = 1999.5,
+			xmax = 2009.5,
+			ymin = 0,
+			ymax = 70000,
+			axis x line* = bottom,
+			axis y line* = left,
+			xticklabels = none,
+			extra x ticks = {2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009},
+			extra x tick labels = {2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009},
+			legend style = {at={(0.5, 1.025)}, anchor = south, legend columns = -1, draw=none, area legend},  
+      area legend,
+			scaled ticks = false,
+			y tick label style = {/pgf/number format/use comma}
+			]
+			\addplot+[mark=none, fill=blau_2b, draw = blau_2b, bar width = 8mm] table[x=year, y=ror] {data/stacked-bar-chart.dat};
+			\addplot+[mark=none, fill=lila_10b, draw = lila_10b, bar width = 8mm] table[x=year, y=storage] {data/stacked-bar-chart.dat};
+			\addplot+[mark=none, fill=orange_6b, draw = orange_6b, bar width = 8mm] table[x=year, y=thermal] {data/stacked-bar-chart.dat};
+			\addplot+[mark=none, fill=gruen_4b, draw = gruen_4b, bar width = 8mm] table[x=year, y=renewable] {data/stacked-bar-chart.dat};
+			\legend{\gls{ROR}, Storage power plant, Thermal power station, Renewable energy}
+		\end{axis} 
+	\end{tikzpicture}
+	\caption[Energy production in Austria]{Energy production in Austria \cite{econtrol2011}}
+	\label{fig:energy_austria}
+\end{figure}
+```
 
 ![Stacked bar chart](https://s3.amazonaws.com/zeMirco/github/latex-template/stacked-bar-chart.png)
 
 ### Pie charts
 
+```
+\newcommand{\slice}[4]{
+  \pgfmathparse{0.5*#1+0.5*#2}
+  \let\midangle\pgfmathresult
+  % slice
+  \draw[thick] (0,0) -- (#1:1) arc (#1:#2:1) -- cycle;
+  % outer label
+  \node[label=\midangle:#4] at (\midangle:1) {};
+  % inner label
+  \pgfmathparse{min((#2-#1-10)/110*(-0.3),0)}
+  \let\temp\pgfmathresult
+  \pgfmathparse{max(\temp,-0.5) + 0.8}
+  \let\innerpos\pgfmathresult
+  \node at (\midangle:\innerpos) {#3};
+}
+
+\begin{figure}[htb]
+	\centering
+	\begin{tikzpicture}[scale=3]
+	\newcounter{a}
+	\newcounter{b}
+	\foreach \p/\t in {5/Shot break, 19/Rotor, 7/Gear + Generator, 18/remaining Housing, 20/Tower, 6/Power connection, 8/Basement, 3/Misc, 14/Operation}
+	 {
+	    \setcounter{a}{\value{b}}
+	    \addtocounter{b}{\p}
+	    \slice{\thea/100*360}
+	          {\theb/100*360}
+	          {\p\%}{\t}
+	  }
+	\end{tikzpicture}
+	\caption[Break down of the CO$_2$ emissions of a wind turbine]{Break down of the CO$_2$ emissions of a wind turbine \cite{kaltschmitt2006}}
+	\label{fig:co2_wind}
+\end{figure}
+```
+
 ![Pie chart](https://s3.amazonaws.com/zeMirco/github/latex-template/pie_chart.png)
 
 ### Two y-axes
 
+```
+\begin{figure}[htb] 
+	\centering
+	\begin{tikzpicture} 
+		\begin{axis}[
+			ybar,
+			scale only axis,
+			xlabel= Trips in 2010,
+			width = 0.8\textwidth,
+			height = 0.5\textwidth,
+			ylabel= Covered distance in km,
+			% height = 80mm,
+			ymin = 0,
+			ymax = 800,
+			xmin = 0,
+			xmax = 111,
+			bar width = 0.5mm,
+			axis x line* = bottom,
+			axis y line* = left,
+			bar shift = -0.25mm,
+			y tick label style = {/pgf/number format/use comma},
+			legend style = {at={(0.5, 1.025)}, anchor = south east, legend columns = -1, draw=none, area legend},
+			area legend
+			]
+			\addplot+[mark=none, blau_2b] table[x=number, y=km] {data/ev.dat};
+			\addplot+[line legend, sharp plot, dashed, line width = 2pt, mark=none, draw = blau_2b] coordinates{(0,150) (111,150)};
+			\legend{Kilometers, max. range (150 km)}
+		\end{axis} 
+		\begin{axis}[
+			ybar,
+			scale only axis,
+			width = 0.8\textwidth,
+			height = 0.5\textwidth,
+			axis y line* = right,
+			axis x line = none,
+			ylabel = Immobilization time between two trips in hours,
+			% height = 80mm,
+			xmin = 0,
+			xmax = 111,
+			ymin = 0,
+			ymax = 410,
+			bar width = 0.5mm,
+			bar shift = 0.25mm,
+			legend style = {at={(0.5, 1.025)}, anchor = south west, legend columns = -1, draw=none, area legend},
+			area legend
+			]
+			\addplot+[mark=none, gruen_4b] table[x=number, y=time] {data/ev.dat};
+			\addplot+[line legend, sharp plot, dashed, line width = 2pt, mark=none, draw = gruen_4b] coordinates{(0,8) (111,8)};
+			\legend{Immobilization time, Charging time (8h)}
+		\end{axis}
+	\end{tikzpicture}
+	\caption[Covered distance and immobilization time between trips of my awesome electric vehicle]{Covered distance per trip and immobilization time between two trips of my awesome electric vehicle in 2010}
+	\label{fig:trips_ev}
+\end{figure}
+```
+
 ![Two y-axes](https://s3.amazonaws.com/zeMirco/github/latex-template/two_y_axes.png)
 
 ## Text replacement
+
+```
+\begin{figure}[htb]
+	\centering
+	\subfloat{
+		\psfrag{a}[c][c]{$\theta$}
+		\psfrag{b}[c][c]{$\Sigma$}
+		\psfrag{c}[c][c]{Incidence angle}
+		\centering
+			\includegraphics[width=70mm]{images/collector_theta-01.eps}
+	}\hspace{1cm}
+	\subfloat{
+		\psfrag{S}[c][c]{S}
+		\psfrag{N}[c][c]{N}
+		\psfrag{a}[c][c]{$\Sigma$}
+		\psfrag{b}[c][c]{$\beta$}
+		\psfrag{c}[c][c]{$\phi_\textnormal{S}$}
+		\psfrag{d}[c][c]{$\phi_\textnormal{C}$}
+		\centering
+			\includegraphics[width=90mm]{images/collector_geometry-01.eps}
+	}
+	\caption[Geometric conditions between solar irradiation and alignment of the photovoltaic panel]{Geometric conditions between solar irradiation and alignment of the photovoltaic panel \cite{masters04}}
+	\label{fig:collector}
+\end{figure}
+```
 
 Before
 ![Without text replacement](https://s3.amazonaws.com/zeMirco/github/latex-template/psfrag_without.png)
