@@ -43,6 +43,8 @@ All features can be used in any LaTeX document and don't depend on the tud class
 
 ### To-do notes
 
+![To-do notes](https://s3.amazonaws.com/zeMirco/github/latex-template/to-do-notes.png)
+
 ```
 \usepackage[ngerman]{todonotes}
 ```
@@ -203,6 +205,12 @@ After
 ![Electronic circuits](https://s3.amazonaws.com/zeMirco/github/latex-template/electronic_circuits.png)
 
 ### Custom bibliography
+
+Before
+![Custom bib before](https://s3.amazonaws.com/zeMirco/github/latex-template/bib-before.png)
+
+After
+![Custom bib after](https://s3.amazonaws.com/zeMirco/github/latex-template/bib-after.png)
 
 ```
 \usepackage[style=numeric, firstinits=true]{biblatex}
