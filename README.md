@@ -6,7 +6,7 @@ This was the template for one of my theses at the [TU Darmstadt](http://www.tu-d
 
 - [How to use](#how-to-use)
 - [Features](#features)
-- [Formulas](#formulas)
+- [Formulas](#equations)
 - [Colors for corporate design](#colors-for-corporate-design)
 - [Tables](#tables)
 - [To-do notes](#to-do-notes)
@@ -17,8 +17,8 @@ This was the template for one of my theses at the [TU Darmstadt](http://www.tu-d
     - [Pie charts](#pie-charts)
     - [Line graph](#line-graph)
     - [Two y-Axes](#two-y-axes)
-- [Electronic circuits](#electronic circuits)
-- [Text font in images](#text-font-in-images)
+- [Electronic circuits](#electronic-circuits)
+- [Text replacement](#text-replacement)
 - [Custom bibliography](#custom-bibliography)
 
 ## How to use
@@ -35,7 +35,9 @@ This was the template for one of my theses at the [TU Darmstadt](http://www.tu-d
 
 6. Run `makeglossaries thesis` from the command line to sort and typeset glossaries and list of acronyms/symbols
 
-7. Run `latex` for the last time and enjoy the output
+7. Run `biblatex`
+
+8. Run `latex` for the last time and enjoy the output
 
 ## Features
 
@@ -423,6 +425,9 @@ Add an optional custom style
 
 ## Text replacement
 
+Before
+![Without text replacement](https://s3.amazonaws.com/zeMirco/github/latex-template/psfrag_without.png)
+
 ```
 \begin{figure}[htb]
 	\centering
@@ -447,9 +452,6 @@ Add an optional custom style
 	\label{fig:collector}
 \end{figure}
 ```
-
-Before
-![Without text replacement](https://s3.amazonaws.com/zeMirco/github/latex-template/psfrag_without.png)
 
 After
 ![Text replacement](https://s3.amazonaws.com/zeMirco/github/latex-template/psfrag.png)
@@ -478,13 +480,10 @@ After
 
 ![Electronic circuits](https://s3.amazonaws.com/zeMirco/github/latex-template/electronic_circuits.png)
 
-## Custom bibliography
+## Custom styled bibliography
 
 Before
 ![Custom bib before](https://s3.amazonaws.com/zeMirco/github/latex-template/bib-before.png)
-
-After
-![Custom bib after](https://s3.amazonaws.com/zeMirco/github/latex-template/bib-after.png)
 
 ```
 \usepackage[style=numeric, firstinits=true, backend=bibtex]{biblatex}
@@ -498,6 +497,10 @@ After
 
 \bibliography{bibliography/bibliography}
 ```
+
+After
+![Custom bib after](https://s3.amazonaws.com/zeMirco/github/latex-template/bib-after.png)
+
 ## Acknowledgements
 
 Clemens v. Loewenich and Johannes Werner for creating the tud classes.
