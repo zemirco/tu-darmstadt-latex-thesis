@@ -6,26 +6,26 @@ This was the template for one of my theses at the [TU Darmstadt](http://www.tu-d
 
 - [How to use](#how-to-use)
 - [Features](#features)
-  - [Formulas](#formulas)
-  - [Colors for corporate design](#colors-for-corporate-design)
-  - [Tables](#tables)
-  - [To-do notes](#to-do-notes)
-  - [List of Symbols](#list-of-symbols)
-  - [List of Acronyms](#list-of-acronyms)
-  - [Beautiful graphs](#beautiful-graphs)
-      - [Bar charts](#bar-charts)
-      - [Pie charts](#pie-charts)
-      - [Line graph](#line-graph)
-      - [Two y-Axes](#two-y-axes)
-  - [Electronic circuits](#electronic circuits)
-  - [Text font in images](#text-font-in-images)
-  - [Custom bibliography](#custom-bibliography)
+- [Formulas](#formulas)
+- [Colors for corporate design](#colors-for-corporate-design)
+- [Tables](#tables)
+- [To-do notes](#to-do-notes)
+- [List of Symbols](#list-of-symbols)
+- [List of Acronyms](#list-of-acronyms)
+- [Beautiful graphs](#beautiful-graphs)
+    - [Bar charts](#bar-charts)
+    - [Pie charts](#pie-charts)
+    - [Line graph](#line-graph)
+    - [Two y-Axes](#two-y-axes)
+- [Electronic circuits](#electronic circuits)
+- [Text font in images](#text-font-in-images)
+- [Custom bibliography](#custom-bibliography)
 
 ## How to use
 
 1. Download tud-design packages from the [physics department](http://exp1.fkp.physik.tu-darmstadt.de/tuddesign/)
 
-2. Download the fonts for corporate design. You need a student account for the university in order to download the fonts.
+2. Download the fonts for corporate design. You need a student account for the university in order to download the fonts. This step is optional. Template will also work without the fonts
 
 3. Install the packages as described in the [manual](http://exp1.fkp.physik.tu-darmstadt.de/tuddesign/)
 
@@ -33,15 +33,15 @@ This was the template for one of my theses at the [TU Darmstadt](http://www.tu-d
 
 5. Run `latex`
 
-5. Run `makeglossaries thesis` from the command line to sort and typeset glossaries and list of acronyms/symbols
+6. Run `makeglossaries thesis` from the command line to sort and typeset glossaries and list of acronyms/symbols
 
-5. Run `latex` for the last time and enjoy the output
+7. Run `latex` for the last time and enjoy the output
 
 ## Features
 
 All features can be used in any LaTeX document and don't depend on the tud classes.
 
-### To-do notes
+## To-do notes
 
 ![To-do notes](https://s3.amazonaws.com/zeMirco/github/latex-template/to-do-notes.png)
 
@@ -69,7 +69,7 @@ All features can be used in any LaTeX document and don't depend on the tud class
 \listoftodos
 ```
 
-### Colors for corporate design
+## Colors for corporate design
 
 Define your own colors for later use in graphs or text.
 
@@ -79,7 +79,7 @@ Define your own colors for later use in graphs or text.
 \definecolor{red_8a}{RGB}{238,122,52}
 ```
 
-### Tables
+## Tables
 
 For tables I used the [ctable](http://texdoc.net/texmf-dist/doc/latex/ctable/ctable.pdf) package. It allows to specify a seperate caption for the toc and therefore enables citations inside the table's caption. It also allows us to write footnotes directly below the table to further explain certain facts.
 
@@ -114,7 +114,7 @@ For tables I used the [ctable](http://texdoc.net/texmf-dist/doc/latex/ctable/cta
 
 ![Table](https://s3.amazonaws.com/zeMirco/github/latex-template/table.png)
 
-### Formulas
+## Formulas
 
 The big advantage of LaTex is how nicely complex formulas are handled.
 
@@ -133,7 +133,7 @@ Seite 95
 \end{equation}
 ```
 
-### List of acronyms
+## List of acronyms
 
 ```
 \newacronym{PVGIS}{PVGIS}{Photovoltaic Geographical Information System}
@@ -144,35 +144,37 @@ Before
 After
 ![Acronyms with style](https://s3.amazonaws.com/zeMirco/github/latex-template/acronyms_with_style.png)
 
-### List of symbols
+## List of symbols
 
 ```
 \newglossaryentry{IDC}{name=\ensuremath{\bar I_{\textnormal{DC}}}, symbol={kWh/m\ensuremath{^2} pro Tag}, description={Durchschnittliche diffuse Sonneneinstrahlung auf eine Kollektoroberfläche}, type=symbolslist}
 ```
 
-### Beautiful graphs
+## Beautiful graphs
 
-#### Line graph
+### Line graph
 
 ![Line graph](https://s3.amazonaws.com/zeMirco/github/latex-template/line_graph.png)
 
 
-#### Bar charts
+### Bar charts
 
 ![Simple bar chart](https://s3.amazonaws.com/zeMirco/github/latex-template/simple_bar_chart.png)
 
 
-#### Stacked bar charts
+### Stacked bar charts
 
-#### Pie charts
+![Stacked bar chart](https://s3.amazonaws.com/zeMirco/github/latex-template/stacked-bar-chart.png)
+
+### Pie charts
 
 ![Pie chart](https://s3.amazonaws.com/zeMirco/github/latex-template/pie_chart.png)
 
-#### Two y-axes
+### Two y-axes
 
 ![Two y-axes](https://s3.amazonaws.com/zeMirco/github/latex-template/two_y_axes.png)
 
-### Text replacement
+## Text replacement
 
 Before
 ![Without text replacement](https://s3.amazonaws.com/zeMirco/github/latex-template/psfrag_without.png)
@@ -180,7 +182,7 @@ Before
 After
 ![Text replacement](https://s3.amazonaws.com/zeMirco/github/latex-template/psfrag.png)
 
-### Electronic circuits
+## Electronic circuits
 
 ```
 \begin{tikzpicture}[
@@ -204,7 +206,7 @@ After
 
 ![Electronic circuits](https://s3.amazonaws.com/zeMirco/github/latex-template/electronic_circuits.png)
 
-### Custom bibliography
+## Custom bibliography
 
 Before
 ![Custom bib before](https://s3.amazonaws.com/zeMirco/github/latex-template/bib-before.png)
@@ -213,7 +215,7 @@ After
 ![Custom bib after](https://s3.amazonaws.com/zeMirco/github/latex-template/bib-after.png)
 
 ```
-\usepackage[style=numeric, firstinits=true]{biblatex}
+\usepackage[style=numeric, firstinits=true, backend=bibtex]{biblatex}
 \urlstyle{same}
 \DeclareFieldFormat{title}{#1\isdot}
 \renewcommand{\labelnamepunct}{\addcolon\space}
@@ -222,9 +224,8 @@ After
 \DeclareNameFormat{default}{\usebibmacro{name:last-first}{#1}{#4}{#5}{#7}\usebibmacro{name:andothers}}
 \DefineBibliographyStrings{ngerman}{urlseen={abgerufen am}}
 
-\bibliography{bibliography}
+\bibliography{bibliography/bibliography}
 ```
-
 ## Acknowledgements
 
 Clemens v. Loewenich and Johannes Werner for creating the tud classes.
